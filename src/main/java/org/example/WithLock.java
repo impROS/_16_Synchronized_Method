@@ -1,19 +1,19 @@
 package org.example;
 
-public class WithSynchronized {
+public class WithLock {
     public static void main(String[] args) {
         BankAccount account = new BankAccount(1000);
 
         Thread thread1 = new Thread(() -> {
-            account.withdrawSynchronized(300);
+            account.withLock(300);
         });
 
         Thread thread2 = new Thread(() -> {
-            account.withdrawSynchronized(500);
+            account.withLock(500);
         });
 
         Thread thread3 = new Thread(() -> {
-            account.withdrawSynchronized(500);
+            account.withLock(500);
         });
 
 
